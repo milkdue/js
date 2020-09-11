@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        变量
+            作用：用来保存数据，数据可以修改
+            本质：变量本身也是数据，也需要在内存中占有空间，保存在内存的栈结构分区中
+        常量
+            作用：用来保存数据，数据不可以被修改
+            本质：常量本质也是数据，也需要在内存占用空间，保存在内存的栈结构中
+        数据类型
+            基本数据类型和复合数据类型（引用，对象）
+            基本数据类型
+                String Number Boolean Null Undefined
+                特征：基本数据类型数据赋值给某个变量之后值本身不会发生改变
+            复合数据类型
+                Object Array Function
+                特征：引用数据类型的值可以通过其赋值的变量修改
+            判断数据类型：typeof
+                typeof的返回值
+                    number string boolean undefined object function
+            使用原生js判断array function object
+                instanceof
+                返回true或false     
+                判断A是否是B的实例
+                A instanceof B
+        js内存结构
+            1.js只有堆内存结构，要区分java等其他语言（有堆内存，有栈内存<栈内存的特点：内存空间小，运行快，使用时分配，且空间固定>）
+            2.理解内存
+                1.内存条通电后产生的存储空间(临时的)
+                2.产生和死亡：内存条(集成电路板)-->通电-->产生一定容量的存储空间-->存储各种数据-->断电-->内存全部消失
+                3.内存的空间是临时的，而硬盘的空间是永久的
+                4.一块内存包含2个数据
+                    内存存储的数据(一般数据/地址数据)
+                    内存地址值数据
+                5.内存分类
+                    栈结构：全局变量，局部变量
+                    堆结构：列表结构 对象
+
+
+     -->
+</head>
+<body>
+    <script>
+        var PERSON = 'sorry';
+    </script>
+</body>
+</html>

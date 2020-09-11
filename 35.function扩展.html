@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        call/apply/bind的区别
+        call和apply都是调用立即执行
+        bind调用返回一个修改this的函数不会立即执行，传参和call一样
+        apply的传参是以数组的方式
+     -->
+</head>
+<body>
+    <script>
+        var obj = {
+            name : 'zhangsan',
+            age : 13
+        };
+
+        function fun(msg){
+            console.log(this, msg);
+        }
+
+        fun.call(obj, 13);
+        fun.apply(obj, [12]);
+        var test = fun.bind(obj);
+        test(11);
+
+        // 定时器修改this
+        setTimeout(function(){
+            console.log(this);
+        }, 2000);
+
+        setTimeout(function(){
+            console.log(this);
+        }.call(obj), 2000);// 立即执行了 所以不能用apply或call
+
+        setTimeout(function(){
+            console.log(this);
+        }.bind(obj), 4000);
+    </script>
+</body>
+</html>

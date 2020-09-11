@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        原型继承
+            子类的原型成为父类的实例
+     -->
+</head>
+<body>
+    <img src="../img/原型继承.png" alt="原型继承">
+    <script>
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.showName = function(){
+            console.log(this.name);
+        }
+
+        function Child(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Child.prototype = new Person();
+        Child.prototype.constructor = Child;
+
+        var person = new Person('zhangsan', 43);
+        var child = new Child('lisi', 16);
+        child.showName();
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        for of遍历命令是依据数组原型中的symbol.iterator方法进行了同时...运算符也是这个原理
+        迭代器是先判断done是false再取value 否则不会取值
+        
+        
+     -->
+
+    <script>
+        function IteratorTest() {
+            console.log('我定义的方法被调用了');
+            //  console.log(arr);//undefined
+            console.log(this);
+            let index = 0;
+            
+            if (this instanceof Array) {
+                return {
+                    next: () => {//使用箭头函数表示this指向的是外层函数的this 不是这个对象
+                        return { value: this[index++], done: index > this.length }
+                    }
+                }
+            }else{
+                let keys = Object.keys(this);
+                console.log(keys);
+                return {
+                    next: () => {//使用箭头函数表示this指向的是外层函数的this 不是这个对象
+                        return { value: this[keys[index++]], done: index > keys.length }
+                    }
+                }
+            }
+
+        }
+
+        function IteratorTest1(arr) {
+            console.log('我定义的方法被调用了');
+            //  console.log(arr);//undefined
+            console.log(this);
+            let index = 0;
+            let that = this;//缓存this一样可以实现
+            
+
+            if (this instanceof Array) {
+                return {
+                next: function () {//使用箭头函数表示this指向的是外层函数的this 不是这个对象
+                    return { value: that[index++], done: index > that.length }
+                }
+            }
+            }else{
+                let keys = Object.keys(this);
+                console.log(keys);
+                return {
+                    next: function () {//使用箭头函数表示this指向的是外层函数的this 不是这个对象
+                        return { value: that[keys[index++]], done: index > keys.length }
+                    }
+                }
+            }
+        }
+        //  Array.prototype[Symbol.iterator] = 3;
+        Array.prototype[Symbol.iterator] = IteratorTest;
+        Object.prototype[Symbol.iterator] = IteratorTest1;
+        let arr = [1, 3, 4, 5];
+        let obj = {name : 'zhangsan', age : 15};
+        console.log(arr);
+        for (let item1 of arr) {
+            console.log(item1);
+        }
+
+        for(let item2 of obj){
+            console.log(item2);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1, 2, 4, 3, 2, 4];
+
+        console.log(arr.indexOf(2));
+        console.log(arr.lastIndexOf(2));
+        var arr2 = arr.map(function (item, index){
+            return item + 4;
+        });
+
+        arr.forEach(function(item, index){
+            console.log(index, ':', item);
+        });
+        console.log(arr2);
+
+        var arr3 = arr.filter(function(item, index){
+            return item > 2;
+        });
+
+        console.log(arr3);
+    </script>
+</body>
+</html>

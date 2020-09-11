@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../img/执行上下文.png" alt="执行上下文图解">
+    <script>
+        var i = 1;
+        function foo(i){
+            if(i == 4){
+                return;
+            }
+            console.log(i);
+            foo(i+1);
+            console.log(i);
+        }
+        foo(i);
+        console.log(i);
+
+        // 执行上下文
+        var c = 1;
+        function c(c){
+            console.log(c);
+            var c = 3;
+        }
+
+        c(1);//报错 预解析后c被覆盖掉了 c不是一个函数 被覆盖为一个属性即c=1
+    </script>
+</body>
+</html>

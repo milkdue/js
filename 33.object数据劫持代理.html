@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        双向数据绑定
+
+        Object.defineProperties(object, descriptors)
+            作用 ： 为指定对象定义扩展多个属性
+            get : 用来获取当前属性值的回调
+            set : 用来修改当前属性值的回调
+        存储器属性：setter getter 一个用来监视值，一个用来取值
+     -->
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'zhangsan',
+            age: 15
+        };
+        //         var sex = 'nan';
+        // obj = Object.defineProperties(obj, {
+        //     sex : {
+        //         // value : 'nan'
+        //         get : function(){
+        //             console.log('get()');
+        //             return sex;
+        //         },
+        //         set : function(msg){//监视当前扩展属性
+        //             console.log(this);
+        //             console.log('set()', msg);
+        //             this.sex = msg//死循环 一修改就调用
+        //             sex = 'nv';
+        //         }
+        //     },
+        //     number : {
+        //         value : 123
+        //     }
+        // });
+        // obj.sex = 'nv';
+        // console.log(obj.sex);
+        // console.log(obj);
+
+        // 克隆一个对象
+        var obj2 = {};
+        for (var item in obj) {
+            if (obj.hasOwnProperty(item)) {
+                console.log(item, ':', obj[item]);
+
+
+                (function (item) {
+                    Object.defineProperties(obj2, {
+                        [item]: {
+                            get: function () {
+                                return obj[item];
+                            },
+                            set: function (msg) {
+                                obj[item] = msg;
+                            }
+                        }
+                    })
+                })(item);
+            }
+        }
+
+        console.log(obj);
+
+        obj2.age = 12;
+        console.log(obj);
+        console.log(obj2);
+        obj.age = 17;
+        console.log(obj);
+        console.log(obj2);
+
+
+    var obj5 = {};
+    Object.defineProperty(obj5, 'sex', {
+        get : function(){
+            return 'nan';
+        },
+        set : function(msg){
+            console.log(msg);
+        }
+    });
+    </script>
+</body>
+
+</html>

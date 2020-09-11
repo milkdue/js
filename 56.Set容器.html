@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        Set容器：无序不可重复的多个value的集合体
+            方法
+                Set()
+                Set(array)
+                add(value)//返回新set
+                delete(value)//删除成功返回true反之返回false
+                has(value)//有返回true
+                clear()// 默认返回undefined
+                seze
+     -->
+</head>
+<body>
+    <script>
+        let arr = [1, 5, 15, 1, 5, 11, 55];
+        let set = new Set(arr);
+        for(let item of set){
+            console.log(item);
+        }
+        console.log(set);//不可重复
+        console.log(set.add(4));
+        console.log(set.delete(1));
+        console.log(set.has(1));
+        console.log(set.clear());
+        console.log(set.size);
+
+
+        
+    </script>
+</body>
+</html>

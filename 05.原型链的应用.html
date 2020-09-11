@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="../img/原型1.png" alt="原型链图解">
+    <img src="../img/原型2.png" alt="原型链图解">
+    <script>
+        var F = function(){};
+        F.prototype.n = 1;
+        var f1 = new F();
+        F.prototype = {
+            n : 2,
+            m : 4
+        };
+        var f2 = new F();
+        console.log(f1.n, f1.m, f2.n, f2.m);// 1 undefined 2 4
+
+        var Fun = function(){};// 函数对象
+        Object.prototype.a = function(){
+            console.log('a()');
+        }
+        Function.prototype.b = function(){
+            console.log('b()');
+        }
+
+        var f3 = new Fun();// 实例化对象
+        f3.a();// a()
+        // f3.b();// f3.b is not a function
+        Fun.a();// a()
+        Fun.b();// b()
+        
+
+    </script>
+</body>
+</html>

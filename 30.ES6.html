@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        ECMScript
+            ES5
+            ES6
+            ES7
+        严格模式
+            在全局或函数第一句定义为：'use strict'
+            语法的改变
+                必须用var声明变量
+                禁止自定义的函数中的this指向window
+                创建eval作用域 在eval定义的变量 不会影响全局（在严格模式下）
+                对象不能有重名的属性
+     -->
+</head>
+<body>
+    <script>
+        // 将严格模式打开
+        'use strict';
+        var a = 2;
+        // 创建eval作用域 eval可以解析传入的字符串代码并执行
+        eval('var a = 43; alert(a)');
+        alert(a);
+    </script>
+</body>
+</html>

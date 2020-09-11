@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function f1(w){
+            var num = 11;
+            function f2(){
+                console.log(++num);
+            }
+            function f3(){
+                return num;
+            }
+
+            w.obj = {
+                f2 : f2,
+                f3 : f3
+            };
+        })(window);
+
+
+        window.obj.f2();// 12
+        obj.f2();// 13
+        console.log(window.obj.f3());// 13
+    </script>
+</body>
+</html>

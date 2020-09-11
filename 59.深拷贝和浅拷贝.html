@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        深拷贝
+            拷贝时产生了新的数据
+            改变拷贝后的引用数据不改变原有数据
+        浅拷贝
+            拷贝时拷贝了数据的引用
+            改变拷贝后的引用数据改变了原有数据
+        常用的拷贝技术
+            1. arr.concat(),浅拷贝
+            2. arr.slice(),浅拷贝
+            3. JSON.parse()/stringify(),深拷贝 
+            4. Object.assign(target, source);
+        
+     -->
+
+     <script>
+         console.log('--------------------concat拷贝----------------------------');
+         let arr = [1, 2, 3, 5, [1, 3]];
+         let arr2 = [];
+         arr2 = arr2.concat(arr);
+         console.log(arr2);
+         arr2[4][1] = 5;
+         console.log(arr, arr2);
+         console.log('--------------------slice拷贝----------------------------');
+         let arr3 = [1, 3, 3, 4, {name : 'zhangsan'}];
+         let arr4 = [];
+         arr4 = arr3.slice(0);
+         console.log(arr4);
+         arr4[4].name = 'lisi';
+         console.log(arr3, arr4);
+         console.log('--------------------JSON拷贝----------------------------');
+         let obj = {name : 'zhangsan', age : 13, sex : {op1 : '男', op2 : '女'}};
+         let obj1 = JSON.parse(JSON.stringify(obj));
+         console.log(obj1);
+         obj1.sex.op1 = '中';
+         console.log(obj, obj1);
+         console.log('--------------------assign拷贝----------------------------');
+         let obj2 = {name : 'lisi', age : 14, sex : {op1 : '男', op2 : '女'}};
+         let obj3 = {};
+         Object.assign(obj3, obj2);
+         console.log(obj3);
+         obj3.sex.op1 = '中';
+         console.log(obj2, obj3);
+     </script>
+</body>
+</html>

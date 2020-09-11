@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Map容器：无序的key不重复的多个key-value的集合体
+        方法：
+            Map()
+            Map(二维数组)
+            set(key, value)//返回新map
+            get(key)// 返回value 无key对应返回undefined
+            delete(key)//删除成功返回true反之返回false
+            has(key)//boolean
+            clear()//无返回值 默认 undefined
+            seze
+        Map可用for of遍历
+     -->
+
+     <script>
+         let map1 = new Map();
+         console.log(map1);
+         map1.set('name', 'zhangsan');
+         console.log('----------------------------------');
+         console.log(map1.set('age', 14));
+         console.log(map1);
+         console.log(map1.get('name'));
+         console.log(map1.delete('age'));
+         console.log(map1);
+         console.log(map1.has('name'));
+         console.log(map1.clear());
+         console.log(map1.size);
+
+         let map2 = new Map([['name', 'lisi'], ['age', 14]]);
+         map2.set('name', 'wangwu');//key不可重复
+         console.log(map2);
+
+         for(let item of map2){
+             console.log(item);
+         }
+     </script>
+</body>
+</html>

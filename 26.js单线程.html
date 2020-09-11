@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        js是单线程的，代码会阻塞(alert()可以证明)
+        
+        js分两种
+            同步代码(初始化代码)
+                会阻塞后续代码的执行
+                同步一定没有回调
+            异步代码(回调代码)
+                异步是非阻塞的
+                异步有回调
+        为什么js是单线程而不是多线程的
+            js的单线程与它的用途有关
+            js主要与用户互动，以及操作dom
+            多线程会导致同步问题
+        js引擎执行代码的基本流程
+            先执行初始化代码：包括一些特别的代码
+            设置定时器
+            绑定监听
+            发生ajax请求
+            在某个时刻执行回调代码
+     -->
+</body>
+</html>

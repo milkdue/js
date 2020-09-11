@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        继承extends实际就是原型继承 让子类的原型成为父类的实例
+        super实际上就是调用父类的构造函数，修改this的指向，指向实例化的对象
+     -->
+</head>
+<body>
+    <script>
+        function Person1(name, age){
+            this.age = age;
+            this.name = name;
+        }
+
+        Person1.prototype.showInfo = function(){
+            console.log(this.name, this.age);
+        }
+
+        
+
+        let person1 = new Person1('zhangsan', 44);
+        console.log(person1);
+        person1.showInfo();
+
+        function Child1(name, age){
+            Person1.call(this, name, age);
+        }
+
+        Child1.prototype = new Person1();
+        Child1.prototype.constructor = Child1;
+        let child1 = new Child1('lisi', 14);
+        console.log(child1);
+        child1.showInfo();
+
+        // 利用类实现继承 extends实际就是将子类的原型成为父类的实例
+        class Person{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+
+            showInfo(){
+                console.log(this.name, this.age);
+            }
+        }
+
+        let person = new Person('wangwu', 45);
+        console.log(person);
+        person.showInfo();
+
+        class Child extends Person{
+            constructor(name, age, sex){
+                super(name, age);
+                // 调用父类的构造函数 并且修改this的指向
+                this.sex = sex;
+            }
+
+            showInfo(){// 父类方法的重写
+                console.log(this.name, this.age, this.sex);
+            }
+        }
+
+        let child = new Child('zhaosi', 18, 'nan');
+        console.log(child);
+        child.showInfo();
+    </script>
+</body>
+</html>

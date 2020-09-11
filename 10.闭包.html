@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        闭包的产生
+            函数嵌套
+            内部函数引用外部函数的局部变量
+            使用内部函数
+        闭包是什么  
+            闭包是一个引用关系，该引用关系存在内部函数中引用的是外部函数的变量的对象
+     -->
+</head>
+<body>
+    <img src="../img/闭包.png" alt="闭包">
+    <script>
+        function f1(){
+            var a = 1;
+            function f2(){
+                console.log(a);
+            }
+
+            return f2;
+        }
+
+        f1()();
+    </script>
+</body>
+</html>

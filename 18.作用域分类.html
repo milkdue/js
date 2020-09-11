@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            作用域的分类
+                1. 静态作用域（词法作用域）
+                2. 动态作用域
+
+            特征
+                1. 词法作用域规定在代码定义的时候就已经决定了，而不是看调用的时候
+                2. 动态作用域是在代码执行的时候决定的
+        */
+
+        var a = 1;
+        function f1(){
+            console.log(a);
+        }
+
+        function f2(){
+            var a = 2;
+            f1();
+        }
+
+
+        f1();
+        f2();
+    </script>
+</body>
+</html>

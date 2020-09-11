@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        h5规范提供了js分线程的实现，取名Web Workers
+        
+        相关API
+            - worker:构造函数，加载分线程执行的js文件
+            - Worker.prototype.onmessage:用于接收另一个线程的回调函数
+            - Worker.prototype.postMessage:向另一个线程发送消息
+        
+        不足
+            - Worker内代码不能操作DOM
+            - 不能跨域加载js
+            - 不是每个浏览器都支持这个新特性
+     -->
+</head>
+<body>
+    <script>
+        var worker = new Worker("../js/分线程测试.js");
+        //接收消息
+        worker.onmessage = function(msg){
+            console.log(msg);
+            console.log(msg.data);
+        };
+        worker.postMessage("msg");
+    </script>
+</body>
+</html>

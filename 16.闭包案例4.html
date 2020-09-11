@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fun(n, o) {
+            console.log(o);
+            return {
+                fun: function (m) {
+                    return fun(m, n);
+                }
+            }
+        }
+
+        var a = fun(1);// undefined 产生闭包 外部函数变量对象{n : 1, o : undefined}
+        a.fun(2);// 对象.属性 返回fun(m, n)的返回值， f(2, 1) 打印1
+        a.fun(3);// 对象.属性 fun(3, 1)
+        a.fun(4);
+
+        var b = fun(1).fun(2);// fun(1)返回对象  此时外部函数的变量对象{n : 1, o : undefined} 对象.属性 返回fun(2, 1)的返回值 是个对象 此时的外部函数的变量对象改变{n : 2, o : 1}
+        b.fun(3);// fun(3, 2) 打印2
+        b.fun(4);// 打印2
+        b.fun(5);
+
+        fun(1).fun(2).fun(3).fun(4).fun(44).fun(33);//变量对象的改变  undefined 1 2 3 4 44
+        // {n : 1, o : undefined}
+        // {n : 2, o : 1}
+        // {n : 3, o : 2}
+        // {n : 4, o : 3}
+        // {n : 44, o : 4}
+        // {n : 33, o : 44}
+    </script>
+</body>
+
+</html>

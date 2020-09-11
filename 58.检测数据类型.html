@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        使用toString方法
+     -->
+
+     <script>
+         let obj = {name : 'zhangsan', age : 14};
+         let arr = [1, 2, 3];
+         let obj1 = null;
+         let num = 13;
+         let str = '1233f';
+         let bool = true;
+         let f1 = () => console.log(f1);
+         let und = undefined;
+         let symbol = Symbol('new');
+
+         console.log(obj.toString());
+         console.log(arr.toString());
+         console.log(Object.prototype.toString.call(arr));
+         console.log(Object.prototype.toString.call(obj1));
+         console.log(Object.prototype.toString.call(num));
+         console.log(Object.prototype.toString.call(str));
+         console.log(Object.prototype.toString.call(bool));
+         console.log(Object.prototype.toString.call(f1));
+         console.log(Object.prototype.toString.call(und));
+         console.log(Object.prototype.toString.call(symbol));
+         console.log(obj.toString().slice(8, -1));
+         console.log(Object.prototype.toString.call(arr).slice(8, -1));
+         console.log(Object.prototype.toString.call(obj1).slice(8, -1));
+         console.log(Object.prototype.toString.call(num).slice(8, -1));
+         console.log(Object.prototype.toString.call(str).slice(8, -1));
+         console.log(Object.prototype.toString.call(bool).slice(8, -1));
+         console.log(Object.prototype.toString.call(f1).slice(8, -1));
+         console.log(Object.prototype.toString.call(und).slice(8, -1));
+         console.log(Object.prototype.toString.call(symbol).slice(8, -1));
+
+         let checkoutType = (target) => Object.prototype.toString.call(target).slice(8, -1);
+
+         console.log(checkoutType(obj));
+         console.log(checkoutType(obj1));
+         console.log(checkoutType(arr));
+         console.log(checkoutType(num));
+         console.log(checkoutType(str));
+         console.log(checkoutType(bool));
+         console.log(checkoutType(f1));
+     </script>
+</body>
+</html>

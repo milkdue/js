@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name1 = 'zhangsan';
+        var obj = {
+            name1 : 'yaoming',
+            action : function(){
+                return function(){
+                    console.log(this.name1);
+                }
+            }
+        }
+
+        obj.action()();
+        // 相当于
+        (function(){
+            console.log(this.name1);
+        })();
+
+        obj = {
+            name1 : 'yaoming',
+            action : function(){
+                var that = this;// this缓存
+                return function(){
+                    console.log(that.name1);
+                }
+            }
+        }
+
+        obj.action()();
+
+    </script>
+</body>
+</html>

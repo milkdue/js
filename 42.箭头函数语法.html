@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('---------------箭头函数 没有参数的情况----------------------');
+        // 当没有参数的时候()作为占位符 不能省略 
+        let f1 = () => console.log("f1调用了");
+        f1();
+        console.log('---------------箭头函数 有一个参数的情况----------------------');
+        // 当有一个参数的情况下()可以省略
+        let f2 = a => console.log(`f2调用了，参数是${a}`);
+        f2(3);
+        console.log('---------------箭头函数 有多个个参数的情况----------------------');
+        // 当有多个参数的时候 ()不可以省略
+        let f3 = (a, b) => console.log(`f3调用了 参数是a=${a}, b=${b}`);
+        f3(2, 5);
+        console.log('---------------箭头函数 只有一条语句----------------------');
+        // 当函数体只有一条语句的时候 {} 可以省略返回当前语句或者表达式
+        let f4 = () => 134 < 111;
+        console.log(f4());
+        console.log(f1());
+        console.log('---------------箭头函数 有多条语句----------------------');
+        // 当函数体有多条语句时{}不可以省略 而且需要手动指定返回值 如果不指定 默认返回return value : undefined
+
+        let f5 = () => {
+            console.log('f5执行了');
+            console.log('测试多条语句');
+            // return;
+
+            // return 134;
+        }
+
+        f5();
+        console.log(f5());
+    </script>
+</body>
+</html>

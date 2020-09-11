@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        利用构造函数实现对其他类的属性继承
+        修改其this的指向
+     -->
+</head>
+<body>
+    <script>
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        function Student(name, age, number){
+            Person.call(this, name, age);
+            this.number = number;
+        }
+
+        var stu = new Student('zhangsan', 14, 123);
+        console.log(stu);
+    </script>
+</body>
+</html>

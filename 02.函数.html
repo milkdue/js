@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        函数
+            1.理解
+                函数也是对象
+                函数是特殊的对象，因为函数具有行为，通过调用可以执行内部语句
+            2.定义函数
+                字面量(函数声明式)
+                    function 函数名(参数列表){函数体}
+                函数表达式
+                    var 变量 = function(参数列表){函数体}
+            3.调用函数方式
+                test()
+                new test()
+                obj.test()
+                test.call(this指向的对象,test的参数)
+                test.apply(this指向的对象,[test的参数])
+            4.设计函数的目的
+                模块化
+                功能明确
+                复用
+                减少命名污染(函数环境与全局环境)
+        回调函数
+            1.定义
+                函数由人定义
+                没有调用
+                函数执行了
+            2.常见的回调函数
+                DOM事件
+                定时器
+                ajax回调函数
+                生命周期回调函数
+        IIEF----立即执行函数(匿名函数自调用)
+            1.作用
+                隐藏内部实现
+                不污染外部命名空间
+        this
+            1.this
+                关键字，一个内置的引用变量
+                在函数中都可以直接使用this
+                this代表调用函数的当前对象
+                在定义函数时，this还没有确定，只有在执行的时候才动态确定(绑定)的
+            2.确定this的值
+                任意函数都是window下的方法
+                构造函数中this代表当前实例化的对象
+        本质上任何函数在执行时都是通过某个对象调用的
+     -->
+</body>
+</html>

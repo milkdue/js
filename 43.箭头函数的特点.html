@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        箭头函数没有自己的this，它的this不是在调用的时候决定的，而是在定义的时候决定的
+        当箭头函数的外部有函数时，当前箭头函数的this和外部函数的this指向同一个对象
+        当箭头函数外部没有函数时，那么它的this指向window
+     -->
+
+     <button id='btn1'>箭头函数this指向测试1</button>
+     <button id='btn2'>箭头函数this指向测试2</button>
+
+     <script>
+         let btn1 = document.getElementById('btn1');
+         let btn2 = document.getElementById('btn2');
+
+         btn1.onclick = function(){
+             console.log(this);
+         };
+
+         btn2.onclick = () => console.log(this);
+
+         let obj1 = {
+             name : 'zhangsan',
+             test : function(){
+                btn2.onclick = () => console.log(this);
+             }
+         }
+
+         obj1.test();
+
+         let obj2 = {
+             name : 'zhangsan',
+             test : () => btn2.onclick = () => console.log(this)
+         };
+         
+         obj2.test();
+
+        //  let Person = (name, age) => {
+        //      this.name = name;
+        //      this.age = age;
+        //  };//person不是一个构造器
+
+        //  let obj3 = new Person();
+     </script>
+</body>
+</html>

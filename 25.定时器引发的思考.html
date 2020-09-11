@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        定时器真的定时执行吗？
+            - 定时器并不能保证定时执行
+            - 一般会延迟一点，也可能延迟很长时间
+        定时器回调函数是在分线程执行的吗？
+            - 在主线程执行， js是单线程的
+        定时器如何实现？
+            - 事件循环模型
+     -->
+</head>
+<body>
+    <script>
+        var time = Date.now();
+
+        setTimeout(function(){
+            console.log(Date.now() - time);
+        }, 2000);
+
+        for(var i = 0; i < 20000; i++){
+            document.write(i + '<br>');
+        }
+    </script>
+</body>
+</html>

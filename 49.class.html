@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        1. 通过class定义类/实现类的继承
+        2. 在类中通过constructor定义构造函数
+        3. 通过new类来创建类的实例
+        4. 通过extends来实现类的继承
+        5. 通过super调用父类的构造方法
+        6. 重写从父类继承的一般方法
+    定义
+        class 类名{
+            constructor(){
+                构造函数
+            }
+            一般方法;
+        }
+
+    类的一般方法和构造函数都在类的原型上
+     -->
+</head>
+<body>
+    <script>
+         class Person{
+             static human = 'yanhuang';
+             constructor(name, age){
+                 this.name = name;
+                 this.age = age;
+             }
+
+             showName(){
+                 console.log(this.name);
+             }
+
+             showAge(){
+                 console.log(this.age);
+             }
+         }
+
+         Person.Firsthuman = 'nvwa';
+         let person = new Person('zhangsan', 18);
+         console.log(person);
+         person.showAge();
+         person.showName();
+         console.log(person.human);//undefined
+         console.log(Person.human);
+         console.log(Person.Firsthuman);
+    </script>
+</body>
+</html>

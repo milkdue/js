@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fbnq(num){
+            if(num == 1 || num == 2){
+                return 1;
+            }
+
+            
+            return fbnq(num - 1) + fbnq(num - 2);
+        }
+
+        function fbnq1(num){
+            return num < 3 ? 1 : fbnq(num - 1) + fbnq(num - 2);
+        }
+
+
+        console.log(fbnq(5));
+    </script>
+</body>
+</html>

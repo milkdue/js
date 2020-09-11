@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = {};
+        var obj1 = {nn : 2};
+        var obj2 = {mm : 3};
+        a[obj1] = 4;
+        a[obj2] = 3;
+        console.log(a[obj1]);
+        console.log(a['[object Object]']);
+        // 所有的对象的键都是字符串 所有obj1变量会转化为字符串 toString() 对象转化为字符串只有一种 '[object Object]' a[obj1] == a['[object Object]']
+    </script>
+</body>
+</html>

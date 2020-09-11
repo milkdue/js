@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        解构赋值
+            实现按需取值
+            解析对象 赋值let声明的全局变量
+            对象的解构赋值
+                let{全局变量名} = {}
+                let声明的变量必须和对象的属性名(key)相同
+
+            数组的解构赋值
+                let[变量名] = [];
+                依据index寻找值
+
+     -->
+</head>
+<body>
+    <script>
+        var obj = {
+            name : 'zhangsan',
+            age : 15
+        };
+
+        let {name, age} = obj;
+        console.log(name, age);
+
+        var arr = [33, 34, 22, 42];
+        let[a, b] = arr;
+        console.log(a, b);
+        let[, , c] = arr;
+        console.log(c);
+
+        // 解构赋值的应用
+            // 比较
+        function f1(obj){
+            console.log(obj.name, obj.age);
+        }
+
+        function f2({name, age}){
+            console.log(name, age);
+        }
+
+        f1(obj);
+        f2(obj);
+    </script>
+</body>
+</html>

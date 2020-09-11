@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        Object.is(v1, v2)判断两个值是否相同
+        Object.assign(target, source1, source2)将源属性拷贝到目标对象 克隆
+        直接操作__proto__属性
+     -->
+</head>
+<body>
+    <script>
+        console.log(0 === -0);//true
+        console.log(NaN === NaN);//false
+        console.log(Object.is(0, -0));// false
+        console.log(Object.is(NaN, NaN));//true
+
+        let target = {};
+        let source = {name : 'libai', age : 33};
+
+        console.log(Object.assign(target, source));//返回值为目标对象
+        console.log(target);//改变目标队形
+
+        let obj = {};
+        obj.__proto__ = target;
+        console.log(obj.name);
+        console.log(obj);
+
+    </script>
+</body>
+</html>

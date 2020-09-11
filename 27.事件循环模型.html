@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: block;
+        }
+    </style>
+    <!-- 
+        执行初始化代码，将事件回调函数交给对应模块管理
+        当事件发生时，管理模块会将回调函数及其数据添加到回调队列中
+        只有当初始代码执行完后，才会遍历读取回调队列中的回调函数
+     -->
+</head>
+<body>
+    <!-- 事件轮询机制 -->
+    <img src="../img/事件循环模型.png" alt="event loop">
+    <img src="../img/事件轮询.png" alt="事件轮询机制">
+
+    <script>
+        var time = Date.now();
+        console.log('程序开始执行');
+        setTimeout(function(){
+            console.log(Date.now() - time);
+        }, 2000);
+        alert("阻塞主线程");
+        // 证明定时器 定时在开启定时时就开始定时
+    </script>
+</body>
+</html>

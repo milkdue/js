@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        1. 二进制与八进制表示法： 二进制用0b, 八进制用0o
+        2. Number.isFinite(i):判断是否是有限大的数
+        3. Number.isNaN(i):判断是否是NaN
+        4. Number.isInteger(i):判断是否是整数
+        5. Number.parseInt(str):将字符串转化为对应的数值
+        6. Math.trunc(i):直接去除小数部分
+     -->
+</head>
+<body>
+    <script>
+        console.log(Number.isFinite(Infinity));
+        console.log(Number.isNaN(+'sfd'));
+        console.log(Number.isInteger(13.3));
+        console.log(Number.parseInt('123aa'));
+        console.log(Number.parseInt('aaa123'));
+        console.log(Math.trunc(134.13));
+        console.log(parseInt('1343.1r3'));
+        console.log(parseInt('aaa133.afa'));
+        let str1 = '23.23';
+        let str2 = '34.34';
+
+        console.log(parseInt(str1 + str2));
+        console.log(parseInt(str1) + parseInt(str2));
+    </script>
+</body>
+</html>

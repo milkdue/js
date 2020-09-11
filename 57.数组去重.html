@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 2, 1, 5, 4, 2, 5, 4, 1];
+
+        function arrayRemove(arr){
+            let result = [];
+            arr.forEach(element => {
+                if(result.indexOf(element) == -1){
+                    result.push(element);
+                }
+            });
+
+            return result;
+        }
+
+        console.log(arrayRemove(arr));
+
+        function arrRemove(arr){
+            let set = new Set(arr);
+            let result = [];
+            
+            for(let ele of set){
+                result.push(ele);
+            }
+
+            return result;
+        }
+
+        console.log(arrRemove(arr));
+
+        function arrRemove1(arr){
+            let set = new Set(arr);
+            return [...set];
+        }
+
+        console.log(arrRemove1(arr));
+
+        let arrRemove2 = arr => [...new Set(arr)];
+        console.log(arrRemove2(arr));
+    </script>
+</body>
+</html>
